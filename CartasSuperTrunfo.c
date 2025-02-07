@@ -2,12 +2,11 @@
 
 int main(){
 
-    char estado;
-    int cidade;
-    float populacao;
-    double area;
-    int pontosturisticos;
-    float pib;
+    char estado, cidade[30];
+    long long int populacao, area;
+    int pontosturisticos, codigo;
+    double pib, pibper, densidade;
+
     char continuar = 'S';
     //Sistema de Loop: Caso o resultado for verdeiro 'S' o comando irar executar tudo dentro das chaves
     while (continuar == 's' || continuar == 'S') {
@@ -16,42 +15,63 @@ int main(){
     printf("Digite o Estado:(Uma Letra de A - H)\n");
     scanf(" %c" , &estado);
 
+    getchar();
+
     //Cidade
-    printf("Digite a Cidade:(Um Numero e 1- 4)\n");
-    scanf("%d", &cidade);
+    printf("Digite o Nome da Cidade:\n");
+    scanf(" %[^\n]", cidade);
+
+    //Cidade
+    printf("Digite o Codigo da Carta:(01 - 04)\n");
+    scanf("%d", &codigo);    
 
     //População
-    printf("Digite o numero da Populacao:\n");
-    scanf("%f" , &populacao);
+    printf("Digite o Numero da Populacao:\n");
+    scanf("%lld" , &populacao);
 
     //Area total da cidade
     printf("Digite a Area da Cidade:\n");
-    scanf("%lf" , &area);
+    scanf("%lld" , &area);
 
     //Numero de Pontos Turisticos da  cidade
-    printf("Digite a quantidade de Pontos Turistico da Cidade:\n");
+    printf("Digite a Quantidade de Pontos Turistico da Cidade:\n");
     scanf("%d" , &pontosturisticos);
 
     //Numero do PIB da Cidade
     printf("Digite o numero do PIB da Cidade:\n");
-    scanf("%f", &pib);
+    scanf("%lf", &pib);
+
+    //Calculo da Densidade Populacional
+    densidade = (double)populacao / area;
+
+    //Calculo do PIB Per Capita
+    pibper = pib / populacao;
 
     //Resultado das Coletas dos Dados
-    printf("\nCarta Adicionada!\n");
-    printf("Numero da Carta: %c%d\n", estado, cidade);
-    printf("Populacao: %.2f\n", populacao);
-    printf("Area: %.2f\n", area);
+    printf("\nCARTA ADICIONADA!\n");
+    printf("Estado: %c\n",estado);
+    printf("Numero da Carta: %c%02d\n", estado, codigo);
+    printf("Nome da Cidade: %s\n", cidade);
+    printf("Populacao: %lld habitantes\n", populacao);
+    printf("Area: %lld km²\n", area);
+    printf("Densidade Populacional: %.2f pessoas/km²\n", densidade);
+    printf("PIB: %.3f reais\n" ,pib);
+    printf("PIB Per Capita: %.2f reais\n" ,pibper);
     printf("Ponto Turistico: %d\n", pontosturisticos);
-    printf("PIB: %.2f\n" ,pib);
 
     //Condição para tomar a decisao final do programa
     printf("\nPressione 'S' para Adicionar outra Carta ou 'N' para sair\n");
+
+    getchar();
     scanf(" %c" , &continuar);
 
     }
-
     //Caso pressionar 'N' o programa exibirar um aviso e fechara
-    printf("Programa finalizado.\n");
+    printf("***FIM DO JOGO!***\n");
+    getchar();
+    
+    printf("\nPressione Enter para fechar o jogo...\n");
+    getchar();
 
     return  0;
 }
