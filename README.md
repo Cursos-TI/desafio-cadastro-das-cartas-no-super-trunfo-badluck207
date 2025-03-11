@@ -1,4 +1,3 @@
 BEM VINDO AO JOGO SUPER TRUNFO!
 
-Um jogo que foi criado focado em criação de cartas e comparação dos atributos das mesmas, no final ganha quem tiver o maior valor sobre as propriedades, execeto a densidade populacional
-vence quem tiver o menor valor.
+Faça,Adicionamentos de propriedades, Soma e Comparação de Cartas e exiba o resultado a comparação definindo uma carta vencedora!
